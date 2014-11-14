@@ -132,19 +132,16 @@ ldirectord::virtual_host { "servicename":
 
 ## Reference
 
-Here, list the classes, types, providers, facts, etc contained in your module.
-This section should include all of the under-the-hood workings of your module so
-people know what the module is touching on their system but don't need to mess
-with things. (We are working on automating this section!)
+Will update later
 
 ## Limitations
 
 This is where you list OS compatibility, version compatibility, etc.
+Tested on Centos6, and ubuntu 12.04
 
 ## Development
 
-Since your module is awesome, other users will want to play with it. Let them
-know what the ground rules for contributing are.
+Please feel free to make this better then it is.
 
 ## Release Notes/Contributors/Etc **Optional**
 
