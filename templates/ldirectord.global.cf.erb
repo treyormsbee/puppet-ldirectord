@@ -1,0 +1,29 @@
+#Managed by puppet using ldirectord module.
+
+<% if @in_checkinterval -%>
+checkinterval=<%= @in_checkinterval %>
+<% end -%>
+<% if @in_checktimeout -%>
+checktimeout=<%= @in_checktimeout %>
+<% end -%>
+<% if @in_connecttimeout -%>
+connecttimeout=<%= @in_connecttimeout %>
+<% end -%>
+<% if @in_negotiatetimeout -%>
+negotiatetimeout=<%= @in_negotiatetimeout %>
+<% end -%>
+<% if @in_checkcount -%>
+checkcount=<%= @in_checkcount %>
+<% end -%>
+<% if @in_autoreload -%>
+autoreload=<%= @in_autoreload %>
+<% end -%>
+<% if @in_callback -%>
+callback=<%= @in_callback %>
+<% end -%>
+<% if @in_quiescent -%>
+quiescent=<%= @in_quiescent %>
+<% end -%>
+<% if @in_logfile -%>
+logfile="<%= @in_logfile %>"
+<% end -%>

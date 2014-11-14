@@ -1,0 +1,14 @@
+{
+  "name": "treyormsbee-ldirectord",
+  "version": "0.0.1",
+  "author": "treyormsbee",
+  "summary": "ldirectord module because there is not one",
+  "license": "Apache 2.0",
+  "source": "https://github.com/treyormsbee/puppet-ldirectord.git",
+  "project_page": "https://github.com/treyormsbee/puppet-ldirectord",
+  "issues_url": "https://github.com/treyormsbee/puppet-ldirectord/issues",
+  "dependencies": [
+    {"version_requirement":">= 1.0.0","name":"puppetlabs-stdlib"}
+  ]
+}
+

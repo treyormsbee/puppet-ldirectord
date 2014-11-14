@@ -1,0 +1,47 @@
+virtual=<%= @virtual %>:<%= @port %>
+<% @real.each do |real| -%>
+    real=<%= real %>:<%= @port %> <%= @real_options %>
+<% end -%>
+<% if @service -%>
+    service=<%= @service %>
+<% end -%>
+<% if @request -%>
+    request="<%= @request %>"
+<% end -%>
+<% if @receive -%>
+    receive="<%= @receive %>"
+<% end -%>
+<% if @scheduler -%>
+    scheduler=<%= @scheduler %>
+<% end -%>
+<% if @protocol -%>
+    protocol=<%= @protocol %>
+<% end -%>
+<% if @checktype -%>
+    checktype=<%= @checktype %>
+<% end -%>
+<% if @checkport -%>
+    checkport=<%= @checkport %>
+<% end -%>
+<% if @httpmethod -%>
+    httpmethod=<%= @httpmethod %>
+<% end -%>
+<% if @virtualhost -%>
+    virtualhost="<%= @virtualhost %>"
+<% end -%>
+<% if @login -%>
+    login="<%= @login %>"
+<% end -%>
+<% if @passwd -%>
+    passwd="<%= @passwd %>"
+<% end -%>
+<% if @database -%>
+    database="<%= @database %>"
+<% end -%>
+<% if @netmask -%>
+    netmask=<%= @netmask %>
+<% end -%>
+<% if @persistent -%>
+    persistent=<%= @persistent %>
+<% end -%>
+
