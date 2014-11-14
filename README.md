@@ -32,7 +32,9 @@ or from package. Provides new type, to confiure load balancer entries.
 
 ### Setup Requirements **OPTIONAL**
 
-pluginsync = true is required.
+* pluginsync = true is required.
+* puppetlabs concat module required
+* puppetlabs stdlib required.
 
 ### Beginning with ldirectord
 
