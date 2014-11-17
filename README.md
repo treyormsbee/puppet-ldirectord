@@ -1,4 +1,4 @@
-# ldirectord
+# Puppet Module - ldirectord
 
 #### Table of Contents
 
