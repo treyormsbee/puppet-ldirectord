@@ -20,7 +20,7 @@ There was not an ldirectord puppet module.  So here one is.
 ## Module Description
 
 Installs ldirectord from the mainteners website, from puppet source, 
-or from package. Provides new type, to confiure load balancer entries.
+or from package. Provides new type, to configure load balancer entries.
 
 ## Setup
 
