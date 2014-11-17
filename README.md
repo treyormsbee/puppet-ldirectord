@@ -43,8 +43,8 @@ To get started you can simply define a vritual host
      ldirectord::virtual_host { "servicename-80":
        entrynumber  => 1,
        name         => "servicename-80",
-       virtual      => "10.12.90.20",
-       real         => [ "10.12.90.21", "10.12.90.22" ],
+       virtual      => "192.168.xx.xx",
+       real         => [ "192.168.xx.xx", "192.168.xx.xx" ],
        real_options => "gate",
        port         => '80',
        service      => 'http',
@@ -60,21 +60,21 @@ The above defined by itself will include the ldirector class
 and give you an /etc/ldirector.cf file that looks like so:
 #Managed by puppet using ldirectord module.
 
-checkinterval=15
-checktimeout=15
-autoreload=no
-quiescent=yes
-logfile="/var/log/ldirectord.log"
-virtual=10.12.90.20:80
-    real=10.12.90.21:80 gate
-    real=10.12.90.22:80 gate
-    service=http
-    request="/lb.html"
-    receive="up"
-    scheduler=wlc
-    protocol=tcp
-    checktype=negotiate
-    persistent=900
+    checkinterval=15
+    checktimeout=15
+    autoreload=no
+    quiescent=yes
+    logfile="/var/log/ldirectord.log"
+    virtual=192.168.xx.xx:80
+        real=192.168.xx.xx:80 gate
+        real=192.168.xx.xx:80 gate
+        service=http
+        request="/lb.html"
+        receive="up"
+        scheduler=wlc
+        protocol=tcp
+        checktype=negotiate
+        persistent=900
 
 Unfortantly every entry you add you will need to increment the entrynumber,  
 this is required because the concat module is used to prepare the the config file
@@ -86,50 +86,50 @@ The defaults should be enough to get you started with a global options config bu
 virtual hosts.
 
 if you want to edit the default global oiptions you can do so like so:
-class { ::ldirectord:
-  #Install Options
-  download_location = 'http://horms.net/projects/ldirectord/download/ldirectord-latest',
-  package_name      = 'ldirectord',
-  #Global Options
-  configfile_path   = '/etc/ldirector.cf',
-  checkinterval     = '15',
-  checktimeout      = '15',
-  connecttimeout    = undef,
-  negotiatetimeout  = undef,
-  checkcount        = undef,
-  autoreload        = 'no',
-  callback          = undef,
-  quiescent         = 'yes',
-  logfile           = '/var/log/ldirectord.log',
-}
+    class { ::ldirectord:
+      #Install Options
+      download_location = 'http://horms.net/projects/ldirectord/download/ldirectord-latest',
+      package_name      = 'ldirectord',
+      #Global Options
+      configfile_path   = '/etc/ldirector.cf',
+      checkinterval     = '15',
+      checktimeout      = '15',
+      connecttimeout    = undef,
+      negotiatetimeout  = undef,
+      checkcount        = undef,
+      autoreload        = 'no',
+      callback          = undef,
+      quiescent         = 'yes',
+      logfile           = '/var/log/ldirectord.log',
+    }
 
 Note:  If you want to install ldirectord from a package rather then the maintaners website,  change download location to package,  
        If you want to install from a puppet file,  change to puppet and place the ldirectord file you want to use in the file directory
 
 Defining a service the following options are available:
-ldirectord::virtual_host { "servicename":
-  entrynumber,
-  name,
-  virtual,
-  real,
-  real_options,
-  port,
-  service,
-  protocol,
-  scheduler,
-  checktype = undef,
-  checkport = undef,
-  httpmethod = undef,
-  virtualhost = undef,
-  login = undef,
-  passwd = undef,
-  database = undef,
-  request = undef,
-  receive = undef,
-  checktype = undef,
-  netmask = undef,
-  persistent = undef,
-}
+    ldirectord::virtual_host { "servicename":
+      entrynumber,
+      name,
+      virtual,
+      real,
+      real_options,
+      port,
+      service,
+      protocol,
+      scheduler,
+      checktype = undef,
+      checkport = undef,
+      httpmethod = undef,
+      virtualhost = undef,
+      login = undef,
+      passwd = undef,
+      database = undef,
+      request = undef,
+      receive = undef,
+      checktype = undef,
+      netmask = undef,
+      persistent = undef,
+    }
 
 
 ## Reference
