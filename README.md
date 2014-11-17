@@ -107,29 +107,30 @@ Note:  If you want to install ldirectord from a package rather then the maintane
        If you want to install from a puppet file,  change to puppet and place the ldirectord file you want to use in the file directory
 
 Defining a service the following options are available:
-    ldirectord::virtual_host { "servicename":
-      entrynumber,
-      name,
-      virtual,
-      real,
-      real_options,
-      port,
-      service,
-      protocol,
-      scheduler,
-      checktype = undef,
-      checkport = undef,
-      httpmethod = undef,
-      virtualhost = undef,
-      login = undef,
-      passwd = undef,
-      database = undef,
-      request = undef,
-      receive = undef,
-      checktype = undef,
-      netmask = undef,
-      persistent = undef,
-    }
+
+      ldirectord::virtual_host { "servicename":
+        entrynumber,
+        name,
+        virtual,
+        real,
+        real_options,
+        port,
+        service,
+        protocol,
+        scheduler,
+        checktype = undef,
+        checkport = undef,
+        httpmethod = undef,
+        virtualhost = undef,
+        login = undef,
+        passwd = undef,
+        database = undef,
+        request = undef,
+        receive = undef,
+        checktype = undef,
+        netmask = undef,
+        persistent = undef,
+      }
 
 
 ## Reference
