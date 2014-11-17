@@ -40,21 +40,21 @@ or from package. Provides new type, to confiure load balancer entries.
 
 To get started you can simply define a vritual host
 
-  ldirectord::virtual_host { "servicename-80":
-    entrynumber  => 1,
-    name         => "servicename-80",
-    virtual      => "10.12.90.20",
-    real         => [ "10.12.90.21", "10.12.90.22" ],
-    real_options => "gate",
-    port         => '80',
-    service      => 'http',
-    request      => '/lb.html',
-    receive      => 'up',
-    protocol     => 'tcp',
-    scheduler    => 'wlc',
-    checktype    => 'negotiate',
-    persistent   => '900',
-  }
+     ldirectord::virtual_host { "servicename-80":
+       entrynumber  => 1,
+       name         => "servicename-80",
+       virtual      => "10.12.90.20",
+       real         => [ "10.12.90.21", "10.12.90.22" ],
+       real_options => "gate",
+       port         => '80',
+       service      => 'http',
+       request      => '/lb.html',
+       receive      => 'up',
+       protocol     => 'tcp',
+       scheduler    => 'wlc',
+       checktype    => 'negotiate',
+       persistent   => '900',
+     }
 
 The above defined by itself will include the ldirector class 
 and give you an /etc/ldirector.cf file that looks like so:
