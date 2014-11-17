@@ -7,9 +7,19 @@
   "source": "https://github.com/treyormsbee/puppet-ldirectord.git",
   "project_page": "https://github.com/treyormsbee/puppet-ldirectord",
   "issues_url": "https://github.com/treyormsbee/puppet-ldirectord/issues",
+  "operatingsystem_support": [
+    {
+    "operatingsystem":"RedHat",
+    "operatingsystemrelease":[ "5.0", "6.0" ]
+    },
+    {
+    "operatingsystem": "Ubuntu",
+    "operatingsystemrelease": [ "12.04" ]
+    }
+  ],
   "dependencies": [
-    {"version_requirement":">= 1.0.0","name":"puppetlabs-stdlib"},
-    {"version_requirement":">= 1.0.0","name":"puppetlabs-concat"},
+    {"version_requirement": ">= 1.0.0", "name": "puppetlabs/stdlib"},
+    {"version_requirement": ">= 1.0.0", "name": "puppetlabs/concat"}
   ]
 }
 
