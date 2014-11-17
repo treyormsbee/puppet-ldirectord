@@ -86,6 +86,7 @@ The defaults should be enough to get you started with a global options config bu
 virtual hosts.
 
 if you want to edit the default global oiptions you can do so like so:
+
     class { ::ldirectord:
       #Install Options
       download_location = 'http://horms.net/projects/ldirectord/download/ldirectord-latest',
