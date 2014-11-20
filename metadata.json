@@ -7,6 +7,7 @@
   "source": "https://github.com/treyormsbee/puppet-ldirectord.git",
   "project_page": "https://github.com/treyormsbee/puppet-ldirectord",
   "issues_url": "https://github.com/treyormsbee/puppet-ldirectord/issues",
+  "tags": ["ldirector", "ldirectord", "load balance", "load balancer", "high availability", "ha"],
   "operatingsystem_support": [
     {
     "operatingsystem":"RedHat",
