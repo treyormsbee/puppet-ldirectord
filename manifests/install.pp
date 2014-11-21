@@ -2,7 +2,7 @@
 class ldirectord::install {
   case $::osfamily {
     'RedHat': {
-      case $operatingsystem {
+      case $::operatingsystem {
         'CentOS': {
           #install dependencies
           if !defined(Package['perl-Socket6']) {
@@ -35,38 +35,41 @@ class ldirectord::install {
           #since a package is available should we bother with pulling from puppet or web?
           #for now,  only use package,  will force the setting at a later date
           #in params.pp
-          if  $ldirectord::download_location =~ /^(puppet|http)/ {
+          if  $ldirectord::params::download_location =~ /^(puppet|http)/ {
             fail("Operating system (${::operatingsystem}) has a maintained pacakge, installation from puppet/http not supported")
-          } 
+          }
         }
-        'default': {
+        default: {
           #Should not be here because this was already covered in params.pp
-           fail("Unsupported operatingsystem (${::operatingsystem})")
+          fail("Unsupported operatingsystem (${::operatingsystem})")
         }
       }
     }
     'Debian': {
-      case $operatingsystem {
+      case $::operatingsystem {
         'Debian': {
-           if $ldirectord::download_location =~ /^(puppet|http)/ {
+          if $ldirectord::params::download_location =~ /^(puppet|http)/ {
             fail("Operating system (${::operatingsystem}) has a maintained pacakge, installation from puppet/http not supported")
           }
         }
         'Ubuntu': {
-           if $ldirectord::download_location =~ /^(puppet|http)/ {
+          if $ldirectord::params::download_location =~ /^(puppet|http)/ {
             fail("Operating system (${::operatingsystem}) has a maintained pacakge, installation from puppet/http not supported")
           }
         }
-        'default': {
-           fail("Unsupported operatingsystem (${::operatingsystem})")
+        default: {
+          fail("Unsupported operatingsystem (${::operatingsystem})")
         }
       }
     }
     'Suse': {
-      case $operatingsystem {
+      case $::operatingsystem {
         'SLES': {
         }
         'OpenSuSE': {
+        }
+        default: {
+          fail("Unsupported operatingsystem (${::operatingsystem})")
         }
       }
     }
@@ -76,7 +79,7 @@ class ldirectord::install {
   }
       
   #we have three choices on how to install, package, puppet web.
-  case $ldirectord::download_location {
+  case $ldirectord::params::download_location {
     /^http/: {
       include ldirectord::install::http
     }

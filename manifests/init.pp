@@ -48,8 +48,9 @@ class ldirectord(
   $callback          = undef,
   $quiescent         = 'yes',
   $logfile           = '/var/log/ldirectord.log',
-) inherits ldirectord::params {
+) {
   #os specific information is here to get ldirectord installed
+  include ldirectord::params
   include ldirectord::install
   include ldirectord::config
 }
