@@ -15,6 +15,20 @@ class ldirectord::params {
       $config_path       = '/etc/ldirectord.cf'
       $curl_path         = '/usr/bin/curl'
     }
+    'Suse': {
+      case $::operatingsystem {
+        'SLES': {
+          $binary_path       = '/usr/sbin/ldirectord'
+          $config_path       = '/etc/ldirectord.cf'
+          $curl_path         = '/usr/bin/curl'
+        }
+        'OpenSuSE': {
+          $binary_path       = '/usr/sbin/ldirectord'
+          $config_path       = '/etc/ldirectord.cf'
+          $curl_path         = '/usr/bin/curl'
+        }
+      }
+    }
     default: {
       fail("Unsupported lsbdistid (${::lsbdistid})")
     }
