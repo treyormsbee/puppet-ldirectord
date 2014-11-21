@@ -36,12 +36,12 @@ class ldirectord::install {
           #for now,  only use package,  will force the setting at a later date
           #in params.pp
           if  $ldirectord::download_location =~ /^(puppet|http)/ {
-            fail("Operating system Fedora has a maintained pacakge, installation from puppet/http not supported")
+            fail("Operating system (${::operatingsystem}) has a maintained pacakge, installation from puppet/http not supported")
           } 
         }
         'default': {
           #Should not be here because this was already covered in params.pp
-          fail("")
+           fail("Unsupported operatingsystem (${::operatingsystem})")
         }
       }
     }
@@ -49,29 +49,29 @@ class ldirectord::install {
       case $operatingsystem {
         'Debian': {
            if $ldirectord::download_location =~ /^(puppet|http)/ {
-             fail("Operating system Fedora has a maintained pacakge, installation from puppet/http not supported")
+            fail("Operating system (${::operatingsystem}) has a maintained pacakge, installation from puppet/http not supported")
           }
         }
         'Ubuntu': {
            if $ldirectord::download_location =~ /^(puppet|http)/ {
-             fail("Operating system Fedora has a maintained pacakge, installation from puppet/http not supported")
+            fail("Operating system (${::operatingsystem}) has a maintained pacakge, installation from puppet/http not supported")
           }
         }
         'default': {
-          fail('I do not know how ti install ldirectord on your OS, Sorry')
+           fail("Unsupported operatingsystem (${::operatingsystem})")
         }
       }
     }
     'Suse': {
       case $operatingsystem {
         'SLES': {
-         }
-         'OpenSuSE': {
-         }
+        }
+        'OpenSuSE': {
+        }
       }
     }
     default: {
-      fail('I do not know how ti install ldirectord on your OS, Sorry')
+      fail("Unsupported operatingsystem (${::osfamily})")
     }
   }
       
@@ -87,7 +87,7 @@ class ldirectord::install {
       include ldirectord::install::package
     }
     default: {
-      fail('I do not know how to install ldirectord, sorry.')
+      fail('I do not know how to install ldirectord the way you want: download_location != /^(http|puppet|package)')
     }
   }
 }

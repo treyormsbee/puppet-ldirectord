@@ -36,7 +36,7 @@
 # Copyright 2014 Your name here, unless otherwise noted.
 #
 class ldirectord(
-  $download_location = 'http://horms.net/projects/ldirectord/download/ldirectord-latest',
+  $download_location = undef,
   $package_name      = 'ldirectord',
   $configfile_path   = '/etc/ldirector.cf',
   $checkinterval     = '15',
