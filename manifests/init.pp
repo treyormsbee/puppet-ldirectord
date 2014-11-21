@@ -38,7 +38,7 @@
 class ldirectord(
   $download_location = undef,
   $package_name      = 'ldirectord',
-  $configfile_path   = '/etc/ldirector.cf',
+  $configfile_path   = '/etc/ldirectord.cf',
   $checkinterval     = '15',
   $checktimeout      = '15',
   $connecttimeout    = undef,
