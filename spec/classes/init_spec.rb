@@ -76,6 +76,20 @@ describe 'ldirectord', :type => 'class' do
     }
   end
 
+  context "On a SLES system with nothing specified" do
+    let :facts do
+      {
+        :osfamily => 'Suse',
+        :operatingsystem => 'SLES',
+        :concat_basedir => '/foo'
+      }
+    end
+    it {
+      expect { should raise_error(Puppet::Error) }
+    }
+  end
+
+
   context "On a Debian system with download location http" do
     let :facts do
       {
