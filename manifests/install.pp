@@ -65,8 +65,12 @@ class ldirectord::install {
     'Suse': {
       case $::operatingsystem {
         'SLES': {
+           fail("Operating system (${::operatingsystem}) not supported yet")
         }
         'OpenSuSE': {
+          if $ldirectord::params::download_location =~ /^(puppet|http)/ {
+            fail("Operating system (${::operatingsystem}) has a maintained pacakge, installation from puppet/http not supported")
+          }
         }
         default: {
           fail("Unsupported operatingsystem (${::operatingsystem})")

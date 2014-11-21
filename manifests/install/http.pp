@@ -8,7 +8,7 @@ class ldirectord::install::http {
     require => Exec['get_ldirectord'],
   }
   exec { 'get_ldirectord':
-    command => "${ldirectord::params::curl_path} -k ${ldirectord::download_location}  -o /var/tmp/ldirectord-latest",
+    command => "${ldirectord::params::curl_path} -k ${ldirectord::params::download_location}  -o /var/tmp/ldirectord-latest",
     onlyif  => '/bin/bash -c \'[ ! -f /var/tmp/ldirectord-latest ]\''
   }
 }
