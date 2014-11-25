@@ -24,6 +24,6 @@ class ldirectord::config {
   concat::fragment { 'global_opts':
     target  => $in_configfile_path,
     content => template('ldirectord/ldirectord.global.cf.erb'),
-    order   => '01',
+    order   => '00',
   }
 }
