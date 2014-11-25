@@ -23,12 +23,11 @@ define ldirectord::virtual_host(
   $netmask = undef,
   $persistent = undef,
 ) {
-  include ::ldirectord
   #If needed,  we could do advance error checking of the options here. 
   #I think people should just put them in correctly and test
   concat::fragment { $name:
     target  => $ldirectord::configfile_path,
     content => template('ldirectord/ldirectord.virtual.cf.erb'),
-    order   => ($entrynumber+1),
+    order   => $entrynumber,
   }
 }
