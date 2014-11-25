@@ -1,4 +1,6 @@
-##### 0.0.2 2014-11-21 Trey Ormsbee <treyormsbee@gmail.com>
+##### 0.0.2 2014-11-xx Trey Ormsbee <treyormsbee@gmail.com>
+* fixed ordering in concat,  the order field is a string, not a number like I assumed.
+
 * updated init.pp - download_location to undef, fixed configfile path
 * updated params.pp made install location picks for specific operating systems and add more refinemnets
 * updated config.pp to match params.pp
