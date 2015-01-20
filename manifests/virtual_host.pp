@@ -1,8 +1,6 @@
 #Define a virtual host entry in the config file.
-#this should probably be in another config file.. balh blah
 define ldirectord::virtual_host(
-  $entrynumber,
-  $name,
+  $entrynumber = $name,
   $virtual,
   $real,
   $real_options,
@@ -28,6 +26,6 @@ define ldirectord::virtual_host(
   concat::fragment { $name:
     target  => $ldirectord::configfile_path,
     content => template('ldirectord/ldirectord.virtual.cf.erb'),
-    order   => $entrynumber,
+    order   => $name,
   }
 }
