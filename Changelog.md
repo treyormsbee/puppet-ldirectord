@@ -1,5 +1,5 @@
 ##### 0.0.4 2014-12-xx Trey Ormsbee <treyormsbee@gmail.com>
-* fixed ordering in concat,  the order field is a string, not a number like I assumed.
+* fixed ordering in concat,  the order field is a string, not a number like I assumed.  It is also no longer a required parameter,  I use title in it's place.
 
 ##### 0.0.3 2014-11-21 Trey Ormsbee <treyormsbee@gmail.com>
 * updated init.pp - download_location to undef, fixed configfile path
