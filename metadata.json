@@ -3,7 +3,7 @@
   "version": "0.0.3",
   "author": "treyormsbee",
   "summary": "ldirectord module because there is not one",
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
   "source": "https://github.com/treyormsbee/puppet-ldirectord.git",
   "project_page": "https://github.com/treyormsbee/puppet-ldirectord",
   "issues_url": "https://github.com/treyormsbee/puppet-ldirectord/issues",
