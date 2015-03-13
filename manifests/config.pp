@@ -2,7 +2,7 @@
 # Variables here come from the class difintion ldirecotrd
 class ldirectord::config {
 
-  #make are config variables local
+  #make our config variables local
   $in_configfile_path   = $ldirectord::configfile_path
   $in_checkinterval     = $ldirectord::checkinterval
   $in_checktimeout      = $ldirectord::checktimeout
