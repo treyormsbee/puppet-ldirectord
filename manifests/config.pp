@@ -1,5 +1,5 @@
 # Config options for ldirectord module
-# Variables here come from the class difintion ldirecotrd
+# Variables here come from the class definition ldirecotrd
 class ldirectord::config {
 
   #make our config variables local
