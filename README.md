@@ -41,7 +41,6 @@ or from package. Provides new type, to configure load balancer entries.
 To get started you can simply define a vritual host
 
      ldirectord::virtual_host { "servicename-80":
-       entrynumber  => 1,
        name         => "servicename-80",
        virtual      => "192.168.xx.xx",
        real         => [ "192.168.xx.xx", "192.168.xx.xx" ],
