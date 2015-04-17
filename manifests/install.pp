@@ -4,6 +4,18 @@ class ldirectord::install {
     'RedHat': {
       case $::operatingsystem {
         'CentOS': {
+          if $operatingsystemrelease =~ /^7/ {
+            if !defined(Package['perl-Sys-Syslog'] {
+              package { 'perl-Sys-Syslog':
+                ensure => installed,
+              }
+            }
+            if !defined(Package['perl-libwww-perl'] {
+              package { 'perl-libwww-perl':
+                ensure => installed,
+              }
+            }
+          }
           #install dependencies
           if !defined(Package['perl-Socket6']) {
             package { 'perl-Socket6':
