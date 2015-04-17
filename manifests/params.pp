@@ -7,6 +7,7 @@ class ldirectord::params {
     'RedHat': {
       case $::operatingsystem {
         /^CentOS|RedHat/: {
+          #todo: if CentOS/RedHat 7,  pull from files directory. http download does not work correctly.
           if $ldirectord::download_location == undef {
             #Default is to pull from maintainer since there is no package
             $download_location = $http_download_location
