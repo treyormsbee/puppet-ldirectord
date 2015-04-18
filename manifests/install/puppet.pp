@@ -1,6 +1,6 @@
 #Install ldirectord from puppet location
 class ldirectord::install::puppet {
-  file { 'ldirectord':
+  file { $ldirectord::params::binary_path:
     path   => '/usr/sbin/ldirectord',
     owner  => 'root',
     group  => 'root',
