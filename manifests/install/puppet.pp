@@ -5,6 +5,6 @@ class ldirectord::install::puppet {
     owner  => 'root',
     group  => 'root',
     mode   => '0755',
-    source => $ldirectord::download_location,
+    source => $ldirectord::params::download_location,
   }
 }

@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 describe 'ldirectord', :type => 'class' do
-  context "On a CentOS system with no options" do
+  context "On a CentOS 5 system with no options" do
     let :facts do
       {
-        :osfamily => 'RedHat',
-        :operatingsystem => 'CentOS',
-        :concat_basedir => '/foo'
+        :osfamily               => 'RedHat',
+        :operatingsystem        => 'CentOS',
+        :operatingsystemrelease => '5.5',
       }
     end
     it { 
@@ -17,6 +17,46 @@ describe 'ldirectord', :type => 'class' do
       should contain_package('curl').with({'name' => 'curl' }) 
       should contain_file('/usr/sbin/ldirectord').with({'mode' => '0755'}) 
       should contain_concat__fragment('global_opts').with({'target' => '/etc/ldirectord.cf'}) 
+    }
+  end
+  context "On a CentOS 6 system with no options" do
+    let :facts do
+      {
+        :osfamily => 'RedHat',
+        :operatingsystem => 'CentOS',
+        :operatingsystemrelease => '6.5',
+        :concat_basedir => '/foo'
+      }
+    end
+    it {
+      should contain_package('perl-Socket6').with({'name' => 'perl-Socket6' })
+      should contain_package('perl-IO-Socket-INET6').with({'name' => 'perl-IO-Socket-INET6' })
+      should contain_package('perl-MailTools').with({'name' => 'perl-MailTools' })
+      should contain_package('ipvsadm').with({'name' => 'ipvsadm' })
+      should contain_package('curl').with({'name' => 'curl' })
+      should contain_file('/usr/sbin/ldirectord').with({'mode' => '0755'})
+      should contain_concat__fragment('global_opts').with({'target' => '/etc/ldirectord.cf'})
+    }
+  end
+  context "On a CentOS 7 system with no options" do
+    let :facts do
+      { 
+        :osfamily => 'RedHat',
+        :operatingsystem => 'CentOS',
+        :operatingsystemrelease => '6.5',
+        :concat_basedir => '/foo'
+      }
+    end
+    it {
+      should contain_package('perl-Socket6').with({'name' => 'perl-Socket6' })
+      should contain_package('perl-Sys-Syslog').with({'name' => 'perl-Sys-Syslog' })
+      should contain_package('perl-libwww-perl').with({'name' => 'perl-libwww-perl' })
+      should contain_package('perl-IO-Socket-INET6').with({'name' => 'perl-IO-Socket-INET6' })
+      should contain_package('perl-MailTools').with({'name' => 'perl-MailTools' })
+      should contain_package('ipvsadm').with({'name' => 'ipvsadm' })
+      should contain_package('curl').with({'name' => 'curl' })
+      should contain_file('/usr/sbin/ldirectord').with({'mode' => '0755'})
+      should contain_concat__fragment('global_opts').with({'target' => '/etc/ldirectord.cf'})
     }
   end
   context "On a Fedora system with no options" do

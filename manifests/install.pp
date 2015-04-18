@@ -5,12 +5,12 @@ class ldirectord::install {
       case $::operatingsystem {
         'CentOS': {
           if $operatingsystemrelease =~ /^7/ {
-            if !defined(Package['perl-Sys-Syslog'] {
+            if !defined(Package['perl-Sys-Syslog']) {
               package { 'perl-Sys-Syslog':
                 ensure => installed,
               }
             }
-            if !defined(Package['perl-libwww-perl'] {
+            if !defined(Package['perl-libwww-perl']) {
               package { 'perl-libwww-perl':
                 ensure => installed,
               }
