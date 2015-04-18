@@ -10,20 +10,20 @@
   "tags": ["ldirector", "ldirectord", "load balance", "load balancer", "high availability", "ha"],
   "operatingsystem_support": [
     {
-    "operatingsystem":"CentOS",
-    "operatingsystemrelease":[ "5.0", "6.0" ]
+      "operatingsystem":"CentOS",
+      "operatingsystemrelease":[ "5.0", "6.0" ]
     },
     {
-    "operatingsystem":"RedHat",
-    "operatingsystemrelease":[ "5.0", "6.0" ]
+      "operatingsystem":"RedHat",
+      "operatingsystemrelease":[ "5.0", "6.0", "7.0" ]
     },
     {
-    "operatingsystem": "Ubuntu",
-    "operatingsystemrelease": [ "12.04" ]
-    }
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [ "12.04" ]
+    },
     {
-    "operatingsystem": "Debian",
-    "operatingsystemmajorrelease": [ "7" ]
+      "operatingsystem": "Debian",
+      "operatingsystemmajorrelease": [ "7" ]
     }
   ],
   "dependencies": [
