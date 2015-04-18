@@ -10,9 +10,9 @@ class ldirectord::params {
           if $ldirectord::download_location == undef {
             #if centos5/6 use download link, 
             #if Centos7 pull from files directory
-            if $operatingsystemrelease =~ /^(5|6)/ {
+            if $::operatingsystemrelease =~ /^(5|6)/ {
               $download_location = $http_download_location
-            } elsif $operatingsystemrelease =~ /^7/ {
+            } elsif $::operatingsystemrelease =~ /^7/ {
               $download_location = 'puppet:///modules/ldirectord/ldirectord.CentOS.7'
             }
           } else {

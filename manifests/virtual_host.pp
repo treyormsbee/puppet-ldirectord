@@ -1,6 +1,5 @@
 #Define a virtual host entry in the config file.
 define ldirectord::virtual_host(
-  $entrynumber = $name,
   $virtual,
   $real,
   $real_options,
@@ -8,6 +7,7 @@ define ldirectord::virtual_host(
   $service,
   $protocol,
   $scheduler,
+  $entrynumber = $name,
   $checktype = undef,
   $checkport = undef,
   $httpmethod = undef,

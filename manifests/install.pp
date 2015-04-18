@@ -4,7 +4,7 @@ class ldirectord::install {
     'RedHat': {
       case $::operatingsystem {
         'CentOS': {
-          if $operatingsystemrelease =~ /^7/ {
+          if $::operatingsystemrelease =~ /^7/ {
             if !defined(Package['perl-Sys-Syslog']) {
               package { 'perl-Sys-Syslog':
                 ensure => installed,
