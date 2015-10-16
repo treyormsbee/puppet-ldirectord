@@ -1,6 +1,10 @@
 virtual=<%= @virtual %>:<%= @port %>
-<% @real.each do |real| -%>
-    real=<%= real %>:<%= @port %> <%= @real_options %>
+<% @real.each do |ip,config|
+     config  = {} if !config
+     port    = config['port'] or @port
+     options = config['options'] or @real_options
+-%>
+    real=<%= ip %>:<%= port %> <%= options %>
 <% end -%>
 <% if @service -%>
     service=<%= @service %>
