@@ -1,3 +1,6 @@
+##### 0.0.5 2015-10-29 Trey Ormsbee <treyormsbee@gmail.com>
+* merged change from njm506
+
 ##### 0.0.4 2014-12-xx Trey Ormsbee <treyormsbee@gmail.com>
 * fixed ordering in concat,  the order field is a string, not a number like I assumed.  It is also no longer a required parameter,  I use title in it's place.
 
