@@ -4,7 +4,7 @@ define ldirectord::virtual_host(
   $real,
   $real_options,
   $port,
-  $service,
+  $service = undef,
   $protocol,
   $scheduler,
   $entrynumber = $name,
