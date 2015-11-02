@@ -10,6 +10,7 @@ define ldirectord::virtual_host(
   $entrynumber = $name,
   $checktype = undef,
   $checkport = undef,
+  $checkcommand = undef,
   $httpmethod = undef,
   $virtualhost = undef,
   $login = undef,
