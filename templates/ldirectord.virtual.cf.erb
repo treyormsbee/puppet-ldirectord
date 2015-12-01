@@ -8,7 +8,7 @@ virtual=<%= @virtual %>:<%= @port %>
 <% end -%>
 <% if @fallback -%>
 <% port = @fallback_port || @port -%>
-     fallback=<%= @fallback %>:<%= port %><% if @fallback_options %> <%= @fallback_options %><% end %>
+    fallback=<%= @fallback %>:<%= port %><% if @fallback_options %> <%= @fallback_options %><% end %>
 <% end -%>
 <% if @service -%>
     service=<%= @service %>
