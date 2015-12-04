@@ -34,6 +34,15 @@ virtual=<%= @virtual %>:<%= @port %>
 <% if @checkcommand -%>
     checkcommand=<%= @checkcommand %>
 <% end -%>
+<% if @checktimeout -%>
+    checktimeout=<%= @checktimeout %>
+<% end -%>
+<% if @checkinterval -%>
+    checkinterval=<%= @checkinterval %>
+<% end -%>
+<% if @failurecount -%>
+    failurecount=<%= @failurecount %>
+<% end -%>
 <% if @httpmethod -%>
     httpmethod=<%= @httpmethod %>
 <% end -%>
