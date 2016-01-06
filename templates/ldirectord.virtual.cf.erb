@@ -6,6 +6,10 @@ virtual=<%= @virtual %>:<%= @port %>
 -%>
     real=<%= ip %>:<%= port %> <%= options %>
 <% end -%>
+<% if @fallback -%>
+<% port = @fallback_port || @port -%>
+    fallback=<%= @fallback %>:<%= port %><% if @fallback_options %> <%= @fallback_options %><% end %>
+<% end -%>
 <% if @service -%>
     service=<%= @service %>
 <% end -%>
@@ -26,6 +30,18 @@ virtual=<%= @virtual %>:<%= @port %>
 <% end -%>
 <% if @checkport -%>
     checkport=<%= @checkport %>
+<% end -%>
+<% if @checkcommand -%>
+    checkcommand=<%= @checkcommand %>
+<% end -%>
+<% if @checktimeout -%>
+    checktimeout=<%= @checktimeout %>
+<% end -%>
+<% if @checkinterval -%>
+    checkinterval=<%= @checkinterval %>
+<% end -%>
+<% if @failurecount -%>
+    failurecount=<%= @failurecount %>
 <% end -%>
 <% if @httpmethod -%>
     httpmethod=<%= @httpmethod %>
