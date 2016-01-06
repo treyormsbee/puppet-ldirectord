@@ -1,3 +1,7 @@
+
+##### 0.0.6 2016-1-6 Trey Ormsbee <treyormsbee@gmail.com>
+* merged more changes from njm506
+
 ##### 0.0.5 2015-10-29 Trey Ormsbee <treyormsbee@gmail.com>
 * merged change from njm506
 
