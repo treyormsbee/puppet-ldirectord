@@ -4,9 +4,9 @@ define ldirectord::virtual_host(
   $real,
   $real_options,
   $port,
-  $service = undef,
   $protocol,
   $scheduler,
+  $service = undef,
   $fallback = undef,
   $fallback_options = undef,
   $fallback_port = undef,
@@ -28,7 +28,7 @@ define ldirectord::virtual_host(
   $netmask = undef,
   $persistent = undef,
 ) {
-  #If needed,  we could do advance error checking of the options here. 
+  #If needed,  we could do advance error checking of the options here.
   #I think people should just put them in correctly and test
   concat::fragment { $title:
     target  => $ldirectord::configfile_path,
