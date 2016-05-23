@@ -44,11 +44,12 @@ class ldirectord::install {
           }
         }
         'Fedora' : {
-          #since a package is available should we bother with pulling from puppet or web?
+          #since a package is available should we bother with pulling from
+          #puppet or web?
           #for now,  only use package,  will force the setting at a later date
           #in params.pp
           if  $ldirectord::params::download_location =~ /^(puppet|http)/ {
-            fail("Operating system (${::operatingsystem}) has a maintained pacakge, installation from puppet/http not supported")
+            fail("Operating system (${::operatingsystem}) has a maintained package, installation from puppet/http not supported")
           }
         }
         default: {
@@ -93,7 +94,7 @@ class ldirectord::install {
       fail("Unsupported operatingsystem (${::osfamily})")
     }
   }
-      
+
   #we have three choices on how to install, package, puppet web.
   case $ldirectord::params::download_location {
     /^http/: {

@@ -8,7 +8,7 @@ class ldirectord::params {
       case $::operatingsystem {
         /^CentOS|RedHat/: {
           if $ldirectord::download_location == undef {
-            #if centos5/6 use download link, 
+            #if centos5/6 use download link,
             #if Centos7 pull from files directory
             if $::operatingsystemrelease =~ /^(5|6)/ {
               $download_location = $http_download_location
@@ -34,7 +34,7 @@ class ldirectord::params {
           $curl_path         = '/usr/bin/curl'
         }
         default: {
-          #Need to verify, Centos 5/6/7, Redhat 5/6/7 
+          #Need to verify, Centos 5/6/7, Redhat 5/6/7
           #and Fedora down to the last supported version.
           fail("Unsupported operatingsystem (${::operatingsystem})")
         }
@@ -94,7 +94,7 @@ class ldirectord::params {
           $curl_path         = '/usr/bin/curl'
         }
         default: {
-          #Should probably remove sles,  the package is in HAE 
+          #Should probably remove sles,  the package is in HAE
           #the defualt install from the web gives errors
           fail("Unsupported operatingsystem (${::operatingsystem})")
         }
