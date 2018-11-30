@@ -1,153 +1,89 @@
-# Puppet Module - ldirectord
+# ldirectord
 
 #### Table of Contents
 
-1. [Overview](#overview)
-2. [Module Description - What the module does and why it is useful](#module-description)
-3. [Setup - The basics of getting started with ldirectord](#setup)
+1. [Description](#description)
+1. [Setup - The basics of getting started with ldirectord](#setup)
     * [What ldirectord affects](#what-ldirectord-affects)
     * [Setup requirements](#setup-requirements)
     * [Beginning with ldirectord](#beginning-with-ldirectord)
-4. [Usage - Configuration options and additional functionality](#usage)
-5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-5. [Limitations - OS compatibility, etc.](#limitations)
-6. [Development - Guide for contributing to the module](#development)
+1. [Usage - Configuration options and additional functionality](#usage)
+1. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
+1. [Limitations - OS compatibility, etc.](#limitations)
+1. [Development - Guide for contributing to the module](#development)
 
-## Overview
+## Description
 
-There was not an ldirectord puppet module.  So here one is.
+Start with a one- or two-sentence summary of what the module does and/or what
+problem it solves. This is your 30-second elevator pitch for your module.
+Consider including OS/Puppet version it works with.
 
-## Module Description
-
-Installs ldirectord from the mainteners website, from puppet source, 
-or from package. Provides new type, to configure load balancer entries.
+You can give more descriptive information in a second paragraph. This paragraph
+should answer the questions: "What does this module *do*?" and "Why would I use
+it?" If your module has a range of functionality (installation, configuration,
+management, etc.), this is the time to mention it.
 
 ## Setup
 
-### What ldirectord affects
+### What ldirectord affects **OPTIONAL**
 
-* Installs ldirectord in /usr/sbin/
-* Installs all needed perl modules,
-* Installs ipvsadm
+If it's obvious what your module touches, you can skip this section. For
+example, folks can probably figure out that your mysql_instance module affects
+their MySQL instances.
+
+If there's more that they should know about, though, this is the place to mention:
+
+* A list of files, packages, services, or operations that the module will alter,
+  impact, or execute.
+* Dependencies that your module automatically installs.
+* Warnings or other important notices.
 
 ### Setup Requirements **OPTIONAL**
 
-* pluginsync = true is required.
-* puppetlabs concat module required
-* puppetlabs stdlib required.
+If your module requires anything extra before setting up (pluginsync enabled,
+etc.), mention it here.
+
+If your most recent release breaks compatibility or requires particular steps
+for upgrading, you might want to include an additional "Upgrading" section
+here.
 
 ### Beginning with ldirectord
 
-To get started you can simply define a vritual host
-
-     ldirectord::virtual_host { "servicename-80":
-       name         => "servicename-80",
-       virtual      => "192.168.xx.xx",
-       real         => [ "192.168.xx.xx", "192.168.xx.xx" ],
-       real_options => "gate",
-       port         => '80',
-       service      => 'http',
-       request      => '/lb.html',
-       receive      => 'up',
-       protocol     => 'tcp',
-       scheduler    => 'wlc',
-       checktype    => 'negotiate',
-       persistent   => '900',
-     }
-
-The above defined by itself will include the ldirector class 
-and give you an /etc/ldirector.cf file that looks like so:
-#Managed by puppet using ldirectord module.
-
-    checkinterval=15
-    checktimeout=15
-    autoreload=no
-    quiescent=yes
-    logfile="/var/log/ldirectord.log"
-    virtual=192.168.xx.xx:80
-        real=192.168.xx.xx:80 gate
-        real=192.168.xx.xx:80 gate
-        service=http
-        request="/lb.html"
-        receive="up"
-        scheduler=wlc
-        protocol=tcp
-        checktype=negotiate
-        persistent=900
-
-Unfortantly every entry you add you will need to increment the entrynumber,  
-this is required because the concat module is used to prepare the the config file
-
+The very basic steps needed for a user to get the module up and running. This
+can include setup steps, if necessary, or it can be an example of the most
+basic use of the module.
 
 ## Usage
 
-The defaults should be enough to get you started with a global options config but no 
-virtual hosts.
-
-if you want to edit the default global oiptions you can do so like so:
-
-    class { ::ldirectord:
-      #Install Options
-      download_location = 'http://horms.net/projects/ldirectord/download/ldirectord-latest',
-      package_name      = 'ldirectord',
-      #Global Options
-      configfile_path   = '/etc/ldirector.cf',
-      checkinterval     = '15',
-      checktimeout      = '15',
-      connecttimeout    = undef,
-      negotiatetimeout  = undef,
-      checkcount        = undef,
-      autoreload        = 'no',
-      callback          = undef,
-      quiescent         = 'yes',
-      logfile           = '/var/log/ldirectord.log',
-    }
-
-Note:  If you want to install ldirectord from a package rather then the maintaners website,  change download location to package,  
-       If you want to install from a puppet file,  change to puppet and place the ldirectord file you want to use in the file directory
-
-Defining a service the following options are available:
-
-      ldirectord::virtual_host { "servicename":
-        entrynumber,
-        name,
-        virtual,
-        real,
-        real_options,
-        port,
-        service,
-        protocol,
-        scheduler,
-        checktype = undef,
-        checkport = undef,
-        httpmethod = undef,
-        virtualhost = undef,
-        login = undef,
-        passwd = undef,
-        database = undef,
-        request = undef,
-        receive = undef,
-        checktype = undef,
-        netmask = undef,
-        persistent = undef,
-      }
-
+This section is where you describe how to customize, configure, and do the
+fancy stuff with your module here. It's especially helpful if you include usage
+examples and code samples for doing things with your module.
 
 ## Reference
 
-Will update later
+Users need a complete list of your module's classes, types, defined types providers, facts, and functions, along with the parameters for each. You can provide this list either via Puppet Strings code comments or as a complete list in this Reference section.
+
+* If you are using Puppet Strings code comments, this Reference section should include Strings information so that your users know how to access your documentation.
+
+* If you are not using Puppet Strings, include a list of all of your classes, defined types, and so on, along with their parameters. Each element in this listing should include:
+
+  * The data type, if applicable.
+  * A description of what the element does.
+  * Valid values, if the data type doesn't make it obvious.
+  * Default value, if any.
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc.
-Tested on Centos6, and ubuntu 12.04
+This is where you list OS compatibility, version compatibility, etc. If there
+are Known Issues, you might want to include them under their own heading here.
 
 ## Development
 
-Please feel free to make this better then it is.
+Since your module is awesome, other users will want to play with it. Let them
+know what the ground rules for contributing are.
 
-## Release Notes/Contributors/Etc **Optional**
+## Release Notes/Contributors/Etc. **Optional**
 
 If you aren't using changelog, put your release notes here (though you should
-consider using changelog). You may also add any additional sections you feel are
-necessary or important to include here. Please use the `## ` header.
+consider using changelog). You can also add any additional sections you feel
+are necessary or important to include here. Please use the `## ` header.

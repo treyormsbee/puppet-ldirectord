@@ -18,6 +18,14 @@ describe 'ldirectord', :type => 'class' do
       should contain_package('curl').with({'name' => 'curl' }) 
       should contain_file('/usr/sbin/ldirectord').with({'mode' => '0755'}) 
       #should contain_concat__fragment('global_opts').with({'target' => '/etc/ldirectord.cf'}) 
+      should contain_concat('/etc/ldirectord.cf') 
+      should contain_class('ldirectord::config')
+      should contain_class('ldirectord::params')
+      should contain_class('ldirectord::install')
+      should contain_class('ldirectord::install::http')
+      should contain_class('ldirectord::config')
+      should contain_exec('get_ldirectord').with({'command' => '/usr/bin/curl -k http://horms.net/projects/ldirectord/download/ldirectord-latest  -o /var/tmp/ldirectord-latest'})
+ 
     }
   end
   context "On a CentOS 6 system with no options" do
@@ -37,6 +45,14 @@ describe 'ldirectord', :type => 'class' do
       should contain_package('curl').with({'name' => 'curl' })
       should contain_file('/usr/sbin/ldirectord').with({'mode' => '0755'})
       should contain_concat__fragment('global_opts').with({'target' => '/etc/ldirectord.cf'})
+      should contain_concat('/etc/ldirectord.cf')
+      should contain_class('ldirectord::config')
+      should contain_class('ldirectord::params')
+      should contain_class('ldirectord::install')
+      should contain_class('ldirectord::install::http')
+      should contain_class('ldirectord::config')
+      should contain_exec('get_ldirectord').with({'command' => '/usr/bin/curl -k http://horms.net/projects/ldirectord/download/ldirectord-latest  -o /var/tmp/ldirectord-latest'})
+
     }
   end
   context "On a CentOS 7 system with no options" do
@@ -58,6 +74,13 @@ describe 'ldirectord', :type => 'class' do
       should contain_package('curl').with({'name' => 'curl' })
       should contain_file('/usr/sbin/ldirectord').with({'mode' => '0755'})
       should contain_concat__fragment('global_opts').with({'target' => '/etc/ldirectord.cf'})
+      should contain_concat('/etc/ldirectord.cf')
+      should contain_class('ldirectord::config')
+      should contain_class('ldirectord::params')
+      should contain_class('ldirectord::install')
+      should contain_class('ldirectord::install::puppet')
+      should contain_class('ldirectord::config')
+
     }
   end
   context "On a Fedora system with no options" do
@@ -71,6 +94,13 @@ describe 'ldirectord', :type => 'class' do
     it {
       should contain_package('ldirectord').with({'name' => 'ldirectord' })
       should contain_concat__fragment('global_opts').with({'target' => '/etc/ldirectord.cf'})
+      should contain_concat('/etc/ldirectord.cf')
+      should contain_class('ldirectord::config')
+      should contain_class('ldirectord::params')
+      should contain_class('ldirectord::install')
+      should contain_class('ldirectord::install::package')
+      should contain_class('ldirectord::config')
+
     }
   end
 
