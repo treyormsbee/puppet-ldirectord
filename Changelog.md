@@ -1,4 +1,4 @@
-##### 0.0.7 2018-11-30 Trey Ormsbee <treyormsbee@gmail.com>
+##### 0.1.0 2018-11-30 Trey Ormsbee <treyormsbee@gmail.com>
 * merged changes from choffee
 * updated spec testing/validates/lint
 
