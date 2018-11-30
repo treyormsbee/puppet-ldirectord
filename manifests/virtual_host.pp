@@ -24,7 +24,6 @@ define ldirectord::virtual_host(
   $database = undef,
   $request = undef,
   $receive = undef,
-  $checktype = undef,
   $netmask = undef,
   $persistent = undef,
 ) {
